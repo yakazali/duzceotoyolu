@@ -1,0 +1,2995 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2186513608fc328f6fd83547af2dd76b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ardhi/Leaflet.MousePosition/src/L.Control.MousePosition.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.66.2/L.Control.Locate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 30px; left: 30px; width: 180px; background-color: rgba(255,255,255,0.85); z-index:9999; font-size:13px; border:2px solid grey; border-radius:8px; padding: 10px; box-shadow: 3px 3px 5px rgba(0,0,0,0.3); font-family: Arial, sans-serif;">
+        <h4 style="margin-top:0; text-align:center; border-bottom:1px solid #ccc; padding-bottom:8px; margin-bottom:8px;">SEMBOLLER</h4>
+        <div style="margin-bottom: 10px; display: flex; align-items: center;"><i class="fa fa-road" style="color:white; background:#d63031; padding:6px; border-radius:50%; width: 25px; text-align: center;"></i><div style="margin-left: 8px;"><b>Üst Geçit</b></div></div>
+        <div style="display: flex; align-items: center;"><i class="fa fa-archway" style="color:white; background:#3867d6; padding:6px; border-radius:50%; width: 25px; text-align: center;"></i><div style="margin-left: 8px;"><b>Alt Geçit</b></div></div>
+    </div>
+    
+            <div class="folium-map" id="map_2186513608fc328f6fd83547af2dd76b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2186513608fc328f6fd83547af2dd76b = L.map(
+                "map_2186513608fc328f6fd83547af2dd76b",
+                {
+                    center: [40.803842313869204, 31.155449321678088],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_2186513608fc328f6fd83547af2dd76b);
+
+            
+
+        
+    
+            var tile_layer_e7c10ba01adcc51ce69052277e379d03 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Esri Imagery",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e7c10ba01adcc51ce69052277e379d03.addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            var tile_layer_c4c8ccb7618a79d3373149627d2e516d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c4c8ccb7618a79d3373149627d2e516d.addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            var poly_line_b294e0b1a0fb105e2af64698f58d27f6 = L.polyline(
+                [[40.804398320754, 30.853922023856], [40.807667523063, 30.867151943345], [40.808131272269, 30.885496938487], [40.817112268424, 30.911822835047], [40.821823774395, 30.917920516521], [40.828288758597, 30.927599652722], [40.832215319033, 30.93716035357], [40.837256288386, 30.946217544521], [40.84113572584, 30.972439325714], [40.841575728325, 30.978170206416], [40.840846534191, 30.994202412776], [40.841453630446, 30.995685950624], [40.845283138728, 31.00863359711], [40.842319076103, 31.022480221283], [40.837409951229, 31.031053367354], [40.83194960511, 31.040700281353], [40.830421227232, 31.043950261853], [40.826439763642, 31.054375443948], [40.820615971668, 31.069523925869], [40.817707432482, 31.077486527445], [40.816964712129, 31.079491319039], [40.814024434677, 31.096408157315], [40.811569937849, 31.116594265871], [40.810716754569, 31.130757584506], [40.810615879541, 31.137986258733], [40.807469091598, 31.148767146278], [40.805004415887, 31.156654461663], [40.804044589046, 31.168109162741], [40.802730183225, 31.175245300843], [40.800385707126, 31.181414382357], [40.798446779958, 31.187708047696], [40.793365734732, 31.203171024581], [40.791408831928, 31.215085928755], [40.790673218536, 31.235336040885], [40.7892477138, 31.251802549156], [40.786031677902, 31.262313734152], [40.785555614251, 31.26428676885], [40.785238562069, 31.270071070361], [40.787075888645, 31.275730315446], [40.790264513651, 31.288799017938], [40.786490799983, 31.29557724102], [40.780868261271, 31.319674448436], [40.779718944549, 31.324903208501], [40.779949870148, 31.329406169404], [40.780905383541, 31.335415416685], [40.781022882917, 31.336810401162], [40.780471020694, 31.342648558387], [40.777771096965, 31.352065611007], [40.777331281327, 31.353029409148], [40.776675810613, 31.354109623748], [40.775449165944, 31.355853891276], [40.774443482714, 31.35758418035], [40.769900642513, 31.365982003041], [40.768239708389, 31.370959511337], [40.767203360202, 31.373967151813]],
+                {"bubblingMouseEvents": true, "color": "#ffffff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#ffffff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.5, "smoothFactor": 1.0, "stroke": true, "weight": 6}
+            ).addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            poly_line_b294e0b1a0fb105e2af64698f58d27f6.bindTooltip(
+                `<div>
+                     Otoyol Hattı
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var feature_group_25cfc625adefb2115e6c58e8ff66e07e = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_c3d3f1687f1ba692dd3dd235130d32fd = L.marker(
+                [40.807667523063, 30.867151943345],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_8ca560a58e5f1117c131e80f4eea4a52 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_330353149a632779018ee188b4e6a69f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3eb943203cb664f400e92b00ccc09379 = $(`<div id="html_3eb943203cb664f400e92b00ccc09379" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">80 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YEŞİLYAYLA-BEYLİCE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">1</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80767, 30.86715</td></tr>         </table>     </div>     </div>`)[0];
+                popup_330353149a632779018ee188b4e6a69f.setContent(html_3eb943203cb664f400e92b00ccc09379);
+            
+        
+
+        marker_c3d3f1687f1ba692dd3dd235130d32fd.bindPopup(popup_330353149a632779018ee188b4e6a69f)
+        ;
+
+        
+    
+    
+            marker_c3d3f1687f1ba692dd3dd235130d32fd.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>80 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">YEŞİLYAYLA-BEYLİCE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c3d3f1687f1ba692dd3dd235130d32fd.setIcon(icon_8ca560a58e5f1117c131e80f4eea4a52);
+            
+    
+            var marker_e0b643f3c1fbd974ff4a725166d95b3c = L.marker(
+                [40.817112268424, 30.911822835047],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_ab3d5f7c4df03d53b825531506e5654b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88957d7aa28d649c13c5ebd824e139d6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e2a19a8516b837819c7c7f6a07c798ab = $(`<div id="html_e2a19a8516b837819c7c7f6a07c798ab" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">81 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DEREKÖY</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">2</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81711, 30.91182</td></tr>         </table>     </div>     </div>`)[0];
+                popup_88957d7aa28d649c13c5ebd824e139d6.setContent(html_e2a19a8516b837819c7c7f6a07c798ab);
+            
+        
+
+        marker_e0b643f3c1fbd974ff4a725166d95b3c.bindPopup(popup_88957d7aa28d649c13c5ebd824e139d6)
+        ;
+
+        
+    
+    
+            marker_e0b643f3c1fbd974ff4a725166d95b3c.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>81 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">DEREKÖY</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0b643f3c1fbd974ff4a725166d95b3c.setIcon(icon_ab3d5f7c4df03d53b825531506e5654b);
+            
+    
+            var marker_9e34e0466aba3fbd73136953a2a7c204 = L.marker(
+                [40.841575728325, 30.978170206416],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_fb1af95a8e502eb8058f9e2105143764 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2534a1de38bf1a48c81925c8074080cd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee1064c52447e3e54509e7f6d72122ee = $(`<div id="html_ee1064c52447e3e54509e7f6d72122ee" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">1 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YAKABAŞI-ELMACIK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">3</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.84158, 30.97817</td></tr>         </table>     </div>     </div>`)[0];
+                popup_2534a1de38bf1a48c81925c8074080cd.setContent(html_ee1064c52447e3e54509e7f6d72122ee);
+            
+        
+
+        marker_9e34e0466aba3fbd73136953a2a7c204.bindPopup(popup_2534a1de38bf1a48c81925c8074080cd)
+        ;
+
+        
+    
+    
+            marker_9e34e0466aba3fbd73136953a2a7c204.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>1 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">YAKABAŞI-ELMACIK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9e34e0466aba3fbd73136953a2a7c204.setIcon(icon_fb1af95a8e502eb8058f9e2105143764);
+            
+    
+            var marker_0ff0a1be07480bd3637bf8d132a5ee42 = L.marker(
+                [40.845283138728, 31.00863359711],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_17cfcced187ebdddcfed2ff634b90dc9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_996be3eeb3f9f144c618c0262d5396bc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_559f4b9dcb933940666e388a47c6bd62 = $(`<div id="html_559f4b9dcb933940666e388a47c6bd62" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">2 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YAYAKBAŞI-HACIKADİRLER</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">4</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.84528, 31.00863</td></tr>         </table>     </div>     </div>`)[0];
+                popup_996be3eeb3f9f144c618c0262d5396bc.setContent(html_559f4b9dcb933940666e388a47c6bd62);
+            
+        
+
+        marker_0ff0a1be07480bd3637bf8d132a5ee42.bindPopup(popup_996be3eeb3f9f144c618c0262d5396bc)
+        ;
+
+        
+    
+    
+            marker_0ff0a1be07480bd3637bf8d132a5ee42.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>2 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">YAYAKBAŞI-HACIKADİRLER</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0ff0a1be07480bd3637bf8d132a5ee42.setIcon(icon_17cfcced187ebdddcfed2ff634b90dc9);
+            
+    
+            var marker_f6fa303e6055ae8f223f98bfc5069e0d = L.marker(
+                [40.842319076103, 31.022480221283],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_e0551ebe483fa21c8168af07deea9c84 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f2b993f0fefb71c7960673d4c4b4ffe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7bc78d9de099013b34de9d5f523f15d1 = $(`<div id="html_7bc78d9de099013b34de9d5f523f15d1" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">3 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YAYAKBAŞI-DÖNGELLİ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">5</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.84232, 31.02248</td></tr>         </table>     </div>     </div>`)[0];
+                popup_3f2b993f0fefb71c7960673d4c4b4ffe.setContent(html_7bc78d9de099013b34de9d5f523f15d1);
+            
+        
+
+        marker_f6fa303e6055ae8f223f98bfc5069e0d.bindPopup(popup_3f2b993f0fefb71c7960673d4c4b4ffe)
+        ;
+
+        
+    
+    
+            marker_f6fa303e6055ae8f223f98bfc5069e0d.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>3 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">YAYAKBAŞI-DÖNGELLİ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f6fa303e6055ae8f223f98bfc5069e0d.setIcon(icon_e0551ebe483fa21c8168af07deea9c84);
+            
+    
+            var marker_f27a230e28066fd046f2b59fbd79db5c = L.marker(
+                [40.837409951229, 31.031053367354],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_3bb05573f510c28d4841884fce1a868d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7c2007d543da0f6555d1658d4dd40f85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dde59751195408f0bbcf32350af669f0 = $(`<div id="html_dde59751195408f0bbcf32350af669f0" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">4 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YAYAKBAŞI-İSLAHİYE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">6</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.83741, 31.03105</td></tr>         </table>     </div>     </div>`)[0];
+                popup_7c2007d543da0f6555d1658d4dd40f85.setContent(html_dde59751195408f0bbcf32350af669f0);
+            
+        
+
+        marker_f27a230e28066fd046f2b59fbd79db5c.bindPopup(popup_7c2007d543da0f6555d1658d4dd40f85)
+        ;
+
+        
+    
+    
+            marker_f27a230e28066fd046f2b59fbd79db5c.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>4 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">YAYAKBAŞI-İSLAHİYE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f27a230e28066fd046f2b59fbd79db5c.setIcon(icon_3bb05573f510c28d4841884fce1a868d);
+            
+    
+            var marker_5e00d12fdbce8cd5bddfa3bc47124850 = L.marker(
+                [40.83194960511, 31.040700281353],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_c2784a8491089fd0305f851f476137be = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ef2ac2bca850633e19827c032c9568a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_702b1b5a0adf5a9e5af11928e043c86a = $(`<div id="html_702b1b5a0adf5a9e5af11928e043c86a" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">5 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">GÖLYAKA GİŞELERİ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">7</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.83195, 31.04070</td></tr>         </table>     </div>     </div>`)[0];
+                popup_ef2ac2bca850633e19827c032c9568a5.setContent(html_702b1b5a0adf5a9e5af11928e043c86a);
+            
+        
+
+        marker_5e00d12fdbce8cd5bddfa3bc47124850.bindPopup(popup_ef2ac2bca850633e19827c032c9568a5)
+        ;
+
+        
+    
+    
+            marker_5e00d12fdbce8cd5bddfa3bc47124850.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>5 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">GÖLYAKA GİŞELERİ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5e00d12fdbce8cd5bddfa3bc47124850.setIcon(icon_c2784a8491089fd0305f851f476137be);
+            
+    
+            var marker_b2aa9d45ca54527b235e1592d84b59ee = L.marker(
+                [40.830421227232, 31.043950261853],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_5b6fe5a6e243a3254a966df1cdcda035 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0bb1ead1910602523da9bc17c599d53b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1f12ede89ac904be8a9f1ae11ddebb04 = $(`<div id="html_1f12ede89ac904be8a9f1ae11ddebb04" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">6 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">KÖPRÜBAŞI-ŞAZİYE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">8</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.83042, 31.04395</td></tr>         </table>     </div>     </div>`)[0];
+                popup_0bb1ead1910602523da9bc17c599d53b.setContent(html_1f12ede89ac904be8a9f1ae11ddebb04);
+            
+        
+
+        marker_b2aa9d45ca54527b235e1592d84b59ee.bindPopup(popup_0bb1ead1910602523da9bc17c599d53b)
+        ;
+
+        
+    
+    
+            marker_b2aa9d45ca54527b235e1592d84b59ee.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>6 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">KÖPRÜBAŞI-ŞAZİYE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b2aa9d45ca54527b235e1592d84b59ee.setIcon(icon_5b6fe5a6e243a3254a966df1cdcda035);
+            
+    
+            var marker_319b837c619e059b4e8f07f28b3c71de = L.marker(
+                [40.826439763642, 31.054375443948],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_4c910d908624337f85add9e44cf8f6bd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_340d86b0b481c7ab0fe26bbf13a3434a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ca42e920655cb5567a6517878abc4cfe = $(`<div id="html_ca42e920655cb5567a6517878abc4cfe" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">7 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">KÖPRÜBAŞI-BOSTANLIK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">9</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.82644, 31.05438</td></tr>         </table>     </div>     </div>`)[0];
+                popup_340d86b0b481c7ab0fe26bbf13a3434a.setContent(html_ca42e920655cb5567a6517878abc4cfe);
+            
+        
+
+        marker_319b837c619e059b4e8f07f28b3c71de.bindPopup(popup_340d86b0b481c7ab0fe26bbf13a3434a)
+        ;
+
+        
+    
+    
+            marker_319b837c619e059b4e8f07f28b3c71de.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>7 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">KÖPRÜBAŞI-BOSTANLIK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_319b837c619e059b4e8f07f28b3c71de.setIcon(icon_4c910d908624337f85add9e44cf8f6bd);
+            
+    
+            var marker_6a15369ada9c4fa4d916225c84751418 = L.marker(
+                [40.814024434677, 31.096408157315],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_26d5bf7e760c00f8bed060ea7149506d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40b4b1b689f2ebf24e7db496a09dc7c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aaf3f465bb106f8215bb7704b79af94d = $(`<div id="html_aaf3f465bb106f8215bb7704b79af94d" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">8 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">MOLLAOĞLU-EFENDİ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">10</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81402, 31.09641</td></tr>         </table>     </div>     </div>`)[0];
+                popup_40b4b1b689f2ebf24e7db496a09dc7c8.setContent(html_aaf3f465bb106f8215bb7704b79af94d);
+            
+        
+
+        marker_6a15369ada9c4fa4d916225c84751418.bindPopup(popup_40b4b1b689f2ebf24e7db496a09dc7c8)
+        ;
+
+        
+    
+    
+            marker_6a15369ada9c4fa4d916225c84751418.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>8 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">MOLLAOĞLU-EFENDİ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6a15369ada9c4fa4d916225c84751418.setIcon(icon_26d5bf7e760c00f8bed060ea7149506d);
+            
+    
+            var marker_bccf4d5b16c1782dd0688436274aaf1d = L.marker(
+                [40.811569937849, 31.116594265871],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_4003100ca8288c60e79e0f6678d4fddc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c99f375135b75a2ffcbf17af5a0b9abc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f5a9cbb3b4e54b43c90060459a834f27 = $(`<div id="html_f5a9cbb3b4e54b43c90060459a834f27" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">9 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">TURAPLAR-BATAKLIÇİFTLİK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">11</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81157, 31.11659</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c99f375135b75a2ffcbf17af5a0b9abc.setContent(html_f5a9cbb3b4e54b43c90060459a834f27);
+            
+        
+
+        marker_bccf4d5b16c1782dd0688436274aaf1d.bindPopup(popup_c99f375135b75a2ffcbf17af5a0b9abc)
+        ;
+
+        
+    
+    
+            marker_bccf4d5b16c1782dd0688436274aaf1d.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>9 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">TURAPLAR-BATAKLIÇİFTLİK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bccf4d5b16c1782dd0688436274aaf1d.setIcon(icon_4003100ca8288c60e79e0f6678d4fddc);
+            
+    
+            var marker_95afaca0dcdb2a93dbe92559a5fb5aa0 = L.marker(
+                [40.807469091598, 31.148767146278],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_4272dccc58bd5014a74394af41e53579 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_63ba82d96d02b05109da6e5f344abd34 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d63b7c415a2bfb68dd2f49f6cc2676b = $(`<div id="html_8d63b7c415a2bfb68dd2f49f6cc2676b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">10 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">HACIAHMETLER-HATIPLAR</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">12</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80747, 31.14877</td></tr>         </table>     </div>     </div>`)[0];
+                popup_63ba82d96d02b05109da6e5f344abd34.setContent(html_8d63b7c415a2bfb68dd2f49f6cc2676b);
+            
+        
+
+        marker_95afaca0dcdb2a93dbe92559a5fb5aa0.bindPopup(popup_63ba82d96d02b05109da6e5f344abd34)
+        ;
+
+        
+    
+    
+            marker_95afaca0dcdb2a93dbe92559a5fb5aa0.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>10 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">HACIAHMETLER-HATIPLAR</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_95afaca0dcdb2a93dbe92559a5fb5aa0.setIcon(icon_4272dccc58bd5014a74394af41e53579);
+            
+    
+            var marker_3d46423d5fb9afc209f537bf7bad8819 = L.marker(
+                [40.804044589046, 31.168109162741],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_3fac72901e161f6d67b6e05a92608749 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ffaa5d352eb55b5b1cd3cbf69aeb7a5e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eeb7471c6d686ef119195ea0bd872f26 = $(`<div id="html_eeb7471c6d686ef119195ea0bd872f26" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">10A NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DÜZCE GİŞELERİ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">13</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80404, 31.16811</td></tr>         </table>     </div>     </div>`)[0];
+                popup_ffaa5d352eb55b5b1cd3cbf69aeb7a5e.setContent(html_eeb7471c6d686ef119195ea0bd872f26);
+            
+        
+
+        marker_3d46423d5fb9afc209f537bf7bad8819.bindPopup(popup_ffaa5d352eb55b5b1cd3cbf69aeb7a5e)
+        ;
+
+        
+    
+    
+            marker_3d46423d5fb9afc209f537bf7bad8819.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>10A NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">DÜZCE GİŞELERİ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3d46423d5fb9afc209f537bf7bad8819.setIcon(icon_3fac72901e161f6d67b6e05a92608749);
+            
+    
+            var marker_9d87ecf2b3ef5aa49e737ae8ab33f2e4 = L.marker(
+                [40.802730183225, 31.175245300843],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_7bfa95aefec157e21ea6e9fdc59d8c27 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_851a1a2b5895e003a60e6847b70f467c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4beffbc19cb0da33f5e8f37c918de093 = $(`<div id="html_4beffbc19cb0da33f5e8f37c918de093" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">11 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ÇALICUMA-SİNİRCİ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">14</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80273, 31.17525</td></tr>         </table>     </div>     </div>`)[0];
+                popup_851a1a2b5895e003a60e6847b70f467c.setContent(html_4beffbc19cb0da33f5e8f37c918de093);
+            
+        
+
+        marker_9d87ecf2b3ef5aa49e737ae8ab33f2e4.bindPopup(popup_851a1a2b5895e003a60e6847b70f467c)
+        ;
+
+        
+    
+    
+            marker_9d87ecf2b3ef5aa49e737ae8ab33f2e4.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>11 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">ÇALICUMA-SİNİRCİ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9d87ecf2b3ef5aa49e737ae8ab33f2e4.setIcon(icon_7bfa95aefec157e21ea6e9fdc59d8c27);
+            
+    
+            var marker_ecd4c029c135a2864619c4cbc4a6d6ea = L.marker(
+                [40.798446779958, 31.187708047696],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_2c049e7de5c0c8cffbb4319113008f0d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a189d3489e858897a0d3427a073fbc5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee974ef4685b6424d2dc4fb6c83847c0 = $(`<div id="html_ee974ef4685b6424d2dc4fb6c83847c0" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">12 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">BÜYÜKAÇMA-PINARLAR</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">15</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.79845, 31.18771</td></tr>         </table>     </div>     </div>`)[0];
+                popup_a189d3489e858897a0d3427a073fbc5a.setContent(html_ee974ef4685b6424d2dc4fb6c83847c0);
+            
+        
+
+        marker_ecd4c029c135a2864619c4cbc4a6d6ea.bindPopup(popup_a189d3489e858897a0d3427a073fbc5a)
+        ;
+
+        
+    
+    
+            marker_ecd4c029c135a2864619c4cbc4a6d6ea.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>12 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">BÜYÜKAÇMA-PINARLAR</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ecd4c029c135a2864619c4cbc4a6d6ea.setIcon(icon_2c049e7de5c0c8cffbb4319113008f0d);
+            
+    
+            var marker_6e4d3480e4f58a7bb448a04ae35cae41 = L.marker(
+                [40.793365734732, 31.203171024581],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_e44b6f0442e0773e963808d02f4e9f62 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d003b6498070b58111f4f8481986d0b2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6b5e72642008b8615063d400c393395a = $(`<div id="html_6b5e72642008b8615063d400c393395a" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">13 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">PAŞAORMANI-PINARLAR</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">16</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.79337, 31.20317</td></tr>         </table>     </div>     </div>`)[0];
+                popup_d003b6498070b58111f4f8481986d0b2.setContent(html_6b5e72642008b8615063d400c393395a);
+            
+        
+
+        marker_6e4d3480e4f58a7bb448a04ae35cae41.bindPopup(popup_d003b6498070b58111f4f8481986d0b2)
+        ;
+
+        
+    
+    
+            marker_6e4d3480e4f58a7bb448a04ae35cae41.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>13 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">PAŞAORMANI-PINARLAR</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6e4d3480e4f58a7bb448a04ae35cae41.setIcon(icon_e44b6f0442e0773e963808d02f4e9f62);
+            
+    
+            var marker_0676f4a3a5c67ca081909cbe84ccbb30 = L.marker(
+                [40.791408831928, 31.215085928755],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_310241d1573f294958eea464ccfef519 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e49c81e4a1f94ffb4aa71b5f12aec86 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8d076a12323c226d196b4a7871e1847e = $(`<div id="html_8d076a12323c226d196b4a7871e1847e" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">14 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">MURADİYEMENGENCİK-PAŞAORMANI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">17</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.79141, 31.21509</td></tr>         </table>     </div>     </div>`)[0];
+                popup_4e49c81e4a1f94ffb4aa71b5f12aec86.setContent(html_8d076a12323c226d196b4a7871e1847e);
+            
+        
+
+        marker_0676f4a3a5c67ca081909cbe84ccbb30.bindPopup(popup_4e49c81e4a1f94ffb4aa71b5f12aec86)
+        ;
+
+        
+    
+    
+            marker_0676f4a3a5c67ca081909cbe84ccbb30.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>14 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">MURADİYEMENGENCİK-PAŞAORMANI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0676f4a3a5c67ca081909cbe84ccbb30.setIcon(icon_310241d1573f294958eea464ccfef519);
+            
+    
+            var marker_c2d1968a601ff5c90f755e185d8b7fd1 = L.marker(
+                [40.790673218536, 31.235336040885],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_c4a3712d255557a4fcb1543a4f02a323 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88c836926d39be66f7628fdb66fdeb7b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7f4ed649d2fa22206d042e3ade404af8 = $(`<div id="html_7f4ed649d2fa22206d042e3ade404af8" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">15 NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİMENGENCİK-DOĞANLI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">18</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.79067, 31.23534</td></tr>         </table>     </div>     </div>`)[0];
+                popup_88c836926d39be66f7628fdb66fdeb7b.setContent(html_7f4ed649d2fa22206d042e3ade404af8);
+            
+        
+
+        marker_c2d1968a601ff5c90f755e185d8b7fd1.bindPopup(popup_88c836926d39be66f7628fdb66fdeb7b)
+        ;
+
+        
+    
+    
+            marker_c2d1968a601ff5c90f755e185d8b7fd1.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>15 NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">DARIYERİMENGENCİK-DOĞANLI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c2d1968a601ff5c90f755e185d8b7fd1.setIcon(icon_c4a3712d255557a4fcb1543a4f02a323);
+            
+    
+            var marker_4e4397d382f8a4950959df3bdbb3eb75 = L.marker(
+                [40.787075888645, 31.275730315446],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_2a1e34cdc27c66ac3b2e82ef335e0d08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4c8bc40b8aabc1ef4443dee542b83eed = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ffa9652c8ea079f1a9695b71c06e526e = $(`<div id="html_ffa9652c8ea079f1a9695b71c06e526e" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">16A NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">KAYNAŞLI GİŞELERİ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">19</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78708, 31.27573</td></tr>         </table>     </div>     </div>`)[0];
+                popup_4c8bc40b8aabc1ef4443dee542b83eed.setContent(html_ffa9652c8ea079f1a9695b71c06e526e);
+            
+        
+
+        marker_4e4397d382f8a4950959df3bdbb3eb75.bindPopup(popup_4c8bc40b8aabc1ef4443dee542b83eed)
+        ;
+
+        
+    
+    
+            marker_4e4397d382f8a4950959df3bdbb3eb75.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>16A NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">KAYNAŞLI GİŞELERİ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4e4397d382f8a4950959df3bdbb3eb75.setIcon(icon_2a1e34cdc27c66ac3b2e82ef335e0d08);
+            
+    
+            var marker_5ed156472755f377fe17b6742146fe3e = L.marker(
+                [40.780471020694, 31.342648558387],
+                {
+}
+            ).addTo(feature_group_25cfc625adefb2115e6c58e8ff66e07e);
+        
+    
+            var icon_fa6f7eac7d2dbca218d6d3b0dc885d70 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "road",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_228b73be7173b7003b3a7b73d74d5de5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6fe9bd4646c4c03ee0a7e19388499f5a = $(`<div id="html_6fe9bd4646c4c03ee0a7e19388499f5a" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#d63031; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ÜST GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">16/B NOLU ÜST GEÇİT KÖPRÜSÜ</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİHASANBEY</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">20</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78047, 31.34265</td></tr>         </table>     </div>     </div>`)[0];
+                popup_228b73be7173b7003b3a7b73d74d5de5.setContent(html_6fe9bd4646c4c03ee0a7e19388499f5a);
+            
+        
+
+        marker_5ed156472755f377fe17b6742146fe3e.bindPopup(popup_228b73be7173b7003b3a7b73d74d5de5)
+        ;
+
+        
+    
+    
+            marker_5ed156472755f377fe17b6742146fe3e.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>16/B NOLU ÜST GEÇİT KÖPRÜSÜ</b><br><span style="color:#d63031;">DARIYERİHASANBEY</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5ed156472755f377fe17b6742146fe3e.setIcon(icon_fa6f7eac7d2dbca218d6d3b0dc885d70);
+            
+    
+            feature_group_25cfc625adefb2115e6c58e8ff66e07e.addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            var feature_group_50a217481669d51b3207db954307c046 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_9a7ea52cba3d66d0e271b2d966317f96 = L.marker(
+                [40.804398320754, 30.853922023856],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_fb448f80d879746fc84545d72c220aef = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_80d9fbc0708cd48dd05d2a6490793cdf = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c704370763d6a2d8a8c3ed835b6780d9 = $(`<div id="html_c704370763d6a2d8a8c3ed835b6780d9" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">1 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">HACİMBEY-YEŞİLYAYLA</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">1</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80440, 30.85392</td></tr>         </table>     </div>     </div>`)[0];
+                popup_80d9fbc0708cd48dd05d2a6490793cdf.setContent(html_c704370763d6a2d8a8c3ed835b6780d9);
+            
+        
+
+        marker_9a7ea52cba3d66d0e271b2d966317f96.bindPopup(popup_80d9fbc0708cd48dd05d2a6490793cdf)
+        ;
+
+        
+    
+    
+            marker_9a7ea52cba3d66d0e271b2d966317f96.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>1 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">HACİMBEY-YEŞİLYAYLA</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9a7ea52cba3d66d0e271b2d966317f96.setIcon(icon_fb448f80d879746fc84545d72c220aef);
+            
+    
+            var marker_7b7f29b031894bd67e8827aad5934018 = L.marker(
+                [40.808131272269, 30.885496938487],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_88724674bd9e254c86cf06601632cdae = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_47405a618150edd6c5f43628014ea157 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2d148840f0fcbd3d4953cfda07041aa2 = $(`<div id="html_2d148840f0fcbd3d4953cfda07041aa2" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">2 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YEŞİLYAYLA</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">2</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80813, 30.88550</td></tr>         </table>     </div>     </div>`)[0];
+                popup_47405a618150edd6c5f43628014ea157.setContent(html_2d148840f0fcbd3d4953cfda07041aa2);
+            
+        
+
+        marker_7b7f29b031894bd67e8827aad5934018.bindPopup(popup_47405a618150edd6c5f43628014ea157)
+        ;
+
+        
+    
+    
+            marker_7b7f29b031894bd67e8827aad5934018.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>2 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">YEŞİLYAYLA</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7b7f29b031894bd67e8827aad5934018.setIcon(icon_88724674bd9e254c86cf06601632cdae);
+            
+    
+            var marker_3a422d5a128208704d1b37346c804840 = L.marker(
+                [40.821823774395, 30.917920516521],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_4323ad4de124748cc445c036df70eaf1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d993160dd822c9202b19951d8c540e7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d6b8017b10388b8f6839cdf95a940dd3 = $(`<div id="html_d6b8017b10388b8f6839cdf95a940dd3" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">3 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YONGALIK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">3</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.82182, 30.91792</td></tr>         </table>     </div>     </div>`)[0];
+                popup_d993160dd822c9202b19951d8c540e7c.setContent(html_d6b8017b10388b8f6839cdf95a940dd3);
+            
+        
+
+        marker_3a422d5a128208704d1b37346c804840.bindPopup(popup_d993160dd822c9202b19951d8c540e7c)
+        ;
+
+        
+    
+    
+            marker_3a422d5a128208704d1b37346c804840.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>3 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">YONGALIK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3a422d5a128208704d1b37346c804840.setIcon(icon_4323ad4de124748cc445c036df70eaf1);
+            
+    
+            var marker_81f93464bfc27335e78176ba8cfa9517 = L.marker(
+                [40.828288758597, 30.927599652722],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_7198cb0787e94ed26151c9da50c478ad = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1eb954f08b2e1af867c863e8df6fcf20 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e5df4a4fb4a687877e990389f223cbea = $(`<div id="html_e5df4a4fb4a687877e990389f223cbea" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">4 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YONGALIK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">4</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.82829, 30.92760</td></tr>         </table>     </div>     </div>`)[0];
+                popup_1eb954f08b2e1af867c863e8df6fcf20.setContent(html_e5df4a4fb4a687877e990389f223cbea);
+            
+        
+
+        marker_81f93464bfc27335e78176ba8cfa9517.bindPopup(popup_1eb954f08b2e1af867c863e8df6fcf20)
+        ;
+
+        
+    
+    
+            marker_81f93464bfc27335e78176ba8cfa9517.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>4 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">YONGALIK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_81f93464bfc27335e78176ba8cfa9517.setIcon(icon_7198cb0787e94ed26151c9da50c478ad);
+            
+    
+            var marker_6d806724c0e423f669230ca3f8b860a0 = L.marker(
+                [40.832215319033, 30.93716035357],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_faef70723624fb512c1b80f3cb9b59f5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9bad73f99a99ef3500b9cca799c0eb13 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aedf86c49030cd4caf8e518923bb8f18 = $(`<div id="html_aedf86c49030cd4caf8e518923bb8f18" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">5 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YONGALIK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">5</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.83222, 30.93716</td></tr>         </table>     </div>     </div>`)[0];
+                popup_9bad73f99a99ef3500b9cca799c0eb13.setContent(html_aedf86c49030cd4caf8e518923bb8f18);
+            
+        
+
+        marker_6d806724c0e423f669230ca3f8b860a0.bindPopup(popup_9bad73f99a99ef3500b9cca799c0eb13)
+        ;
+
+        
+    
+    
+            marker_6d806724c0e423f669230ca3f8b860a0.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>5 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">YONGALIK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6d806724c0e423f669230ca3f8b860a0.setIcon(icon_faef70723624fb512c1b80f3cb9b59f5);
+            
+    
+            var marker_d18894ef7457abc94e4adb6bc2d49107 = L.marker(
+                [40.837256288386, 30.946217544521],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_dd6fc6a8dfe46d57db3b15a2e8cab6ee = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_150ff2a5a6c323709ea65a529978b2a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_673df3783466471589830e01c0290d98 = $(`<div id="html_673df3783466471589830e01c0290d98" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">6 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">GÜMÜŞOVA</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">6</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.83726, 30.94622</td></tr>         </table>     </div>     </div>`)[0];
+                popup_150ff2a5a6c323709ea65a529978b2a8.setContent(html_673df3783466471589830e01c0290d98);
+            
+        
+
+        marker_d18894ef7457abc94e4adb6bc2d49107.bindPopup(popup_150ff2a5a6c323709ea65a529978b2a8)
+        ;
+
+        
+    
+    
+            marker_d18894ef7457abc94e4adb6bc2d49107.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>6 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">GÜMÜŞOVA</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d18894ef7457abc94e4adb6bc2d49107.setIcon(icon_dd6fc6a8dfe46d57db3b15a2e8cab6ee);
+            
+    
+            var marker_dd3ae43167ad5a784a07125befb59490 = L.marker(
+                [40.84113572584, 30.972439325714],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_7bddcf3e2c906eff45ac158fa8ad4413 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ccb0d53e27313cc138335a1140ab1d44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8cb128a32f8641e5003affdbc539fdc6 = $(`<div id="html_8cb128a32f8641e5003affdbc539fdc6" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">7 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">SELAMLAR-ELMACIK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">7</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.84114, 30.97244</td></tr>         </table>     </div>     </div>`)[0];
+                popup_ccb0d53e27313cc138335a1140ab1d44.setContent(html_8cb128a32f8641e5003affdbc539fdc6);
+            
+        
+
+        marker_dd3ae43167ad5a784a07125befb59490.bindPopup(popup_ccb0d53e27313cc138335a1140ab1d44)
+        ;
+
+        
+    
+    
+            marker_dd3ae43167ad5a784a07125befb59490.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>7 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">SELAMLAR-ELMACIK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd3ae43167ad5a784a07125befb59490.setIcon(icon_7bddcf3e2c906eff45ac158fa8ad4413);
+            
+    
+            var marker_8d32138ac38e8d689f7704e2db252af4 = L.marker(
+                [40.840846534191, 30.994202412776],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_fbcb0dc4aa0a0f6d8de072b6f1abaa68 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e45083c867c4d8e4b0accb41278ae11c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7251f327044306e19cdeefe68fc944fc = $(`<div id="html_7251f327044306e19cdeefe68fc944fc" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">8 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YAKABAŞI-SARIDERE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">8</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.84085, 30.99420</td></tr>         </table>     </div>     </div>`)[0];
+                popup_e45083c867c4d8e4b0accb41278ae11c.setContent(html_7251f327044306e19cdeefe68fc944fc);
+            
+        
+
+        marker_8d32138ac38e8d689f7704e2db252af4.bindPopup(popup_e45083c867c4d8e4b0accb41278ae11c)
+        ;
+
+        
+    
+    
+            marker_8d32138ac38e8d689f7704e2db252af4.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>8 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">YAKABAŞI-SARIDERE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8d32138ac38e8d689f7704e2db252af4.setIcon(icon_fbcb0dc4aa0a0f6d8de072b6f1abaa68);
+            
+    
+            var marker_0d1fdf9fffcaa8baeae0fdb6381c78db = L.marker(
+                [40.841453630446, 30.995685950624],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_eb85c36835f01dd01d49197519380d91 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3358b7d6eff525437be6d00d444c3882 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bce929f7a3c320701b417b350e6792fd = $(`<div id="html_bce929f7a3c320701b417b350e6792fd" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">9 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">SULTANİYE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">9</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.84145, 30.99569</td></tr>         </table>     </div>     </div>`)[0];
+                popup_3358b7d6eff525437be6d00d444c3882.setContent(html_bce929f7a3c320701b417b350e6792fd);
+            
+        
+
+        marker_0d1fdf9fffcaa8baeae0fdb6381c78db.bindPopup(popup_3358b7d6eff525437be6d00d444c3882)
+        ;
+
+        
+    
+    
+            marker_0d1fdf9fffcaa8baeae0fdb6381c78db.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>9 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">SULTANİYE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d1fdf9fffcaa8baeae0fdb6381c78db.setIcon(icon_eb85c36835f01dd01d49197519380d91);
+            
+    
+            var marker_c896b9a41d02466f3ba8454ba85ca5b5 = L.marker(
+                [40.820615971668, 31.069523925869],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_b2908f96781c8e0e5b1368592b9c6141 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9d63cd3903b65f60f7e6c8a098ab7f3e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ecd86cb857a665189b7b8c079cf52c1 = $(`<div id="html_1ecd86cb857a665189b7b8c079cf52c1" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">10 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">PAŞAKONAĞI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">10</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.82062, 31.06952</td></tr>         </table>     </div>     </div>`)[0];
+                popup_9d63cd3903b65f60f7e6c8a098ab7f3e.setContent(html_1ecd86cb857a665189b7b8c079cf52c1);
+            
+        
+
+        marker_c896b9a41d02466f3ba8454ba85ca5b5.bindPopup(popup_9d63cd3903b65f60f7e6c8a098ab7f3e)
+        ;
+
+        
+    
+    
+            marker_c896b9a41d02466f3ba8454ba85ca5b5.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>10 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">PAŞAKONAĞI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c896b9a41d02466f3ba8454ba85ca5b5.setIcon(icon_b2908f96781c8e0e5b1368592b9c6141);
+            
+    
+            var marker_a242c20a927c60547db0470627564fa3 = L.marker(
+                [40.817707432482, 31.077486527445],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_5b1d9cbdf85d9b5dc0bdb70f67f26a58 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_46cd930edb3bc461294766e6bb045345 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6fa779c725c8c6285d5afbdb427a5831 = $(`<div id="html_6fa779c725c8c6285d5afbdb427a5831" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">11 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">PAŞAKONAĞI-BAHÇE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">11</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81771, 31.07749</td></tr>         </table>     </div>     </div>`)[0];
+                popup_46cd930edb3bc461294766e6bb045345.setContent(html_6fa779c725c8c6285d5afbdb427a5831);
+            
+        
+
+        marker_a242c20a927c60547db0470627564fa3.bindPopup(popup_46cd930edb3bc461294766e6bb045345)
+        ;
+
+        
+    
+    
+            marker_a242c20a927c60547db0470627564fa3.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>11 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">PAŞAKONAĞI-BAHÇE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a242c20a927c60547db0470627564fa3.setIcon(icon_5b1d9cbdf85d9b5dc0bdb70f67f26a58);
+            
+    
+            var marker_15a1ac37ee5bdedcb2f9cc0ef17ec45a = L.marker(
+                [40.816964712129, 31.079491319039],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_dda5e45f6fea0d2fd7b18fe775a1c0a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0db683428c68c3a010387ac454fe23be = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3cc131716bf75f7a793aa0b8702665a9 = $(`<div id="html_3cc131716bf75f7a793aa0b8702665a9" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">12 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">KUŞAÇMASI-YENİTAŞKÖPRÜ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">12</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81696, 31.07949</td></tr>         </table>     </div>     </div>`)[0];
+                popup_0db683428c68c3a010387ac454fe23be.setContent(html_3cc131716bf75f7a793aa0b8702665a9);
+            
+        
+
+        marker_15a1ac37ee5bdedcb2f9cc0ef17ec45a.bindPopup(popup_0db683428c68c3a010387ac454fe23be)
+        ;
+
+        
+    
+    
+            marker_15a1ac37ee5bdedcb2f9cc0ef17ec45a.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>12 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">KUŞAÇMASI-YENİTAŞKÖPRÜ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_15a1ac37ee5bdedcb2f9cc0ef17ec45a.setIcon(icon_dda5e45f6fea0d2fd7b18fe775a1c0a7);
+            
+    
+            var marker_462db75e118141cedff696f344cff605 = L.marker(
+                [40.810716754569, 31.130757584506],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_0e3eaf14a5d7b12f58aef00a76a24dde = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4abb520e71c548b83d162989e645c2ef = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_60271283a110e9986761c6b53262c9f7 = $(`<div id="html_60271283a110e9986761c6b53262c9f7" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">13 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">TURAPLAR</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">13</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81072, 31.13076</td></tr>         </table>     </div>     </div>`)[0];
+                popup_4abb520e71c548b83d162989e645c2ef.setContent(html_60271283a110e9986761c6b53262c9f7);
+            
+        
+
+        marker_462db75e118141cedff696f344cff605.bindPopup(popup_4abb520e71c548b83d162989e645c2ef)
+        ;
+
+        
+    
+    
+            marker_462db75e118141cedff696f344cff605.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>13 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">TURAPLAR</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_462db75e118141cedff696f344cff605.setIcon(icon_0e3eaf14a5d7b12f58aef00a76a24dde);
+            
+    
+            var marker_47c050468bb1c886dbb23b9be6b84c2f = L.marker(
+                [40.810615879541, 31.137986258733],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_aa774103f2aab643d382fb7dd1e55531 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c696278f41c9df765018293781bfdae3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0aa4f4237947409f131469bf335964b = $(`<div id="html_d0aa4f4237947409f131469bf335964b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">14 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">KÜÇÜKMEHMET-DÜZCE</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">14</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.81062, 31.13799</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c696278f41c9df765018293781bfdae3.setContent(html_d0aa4f4237947409f131469bf335964b);
+            
+        
+
+        marker_47c050468bb1c886dbb23b9be6b84c2f.bindPopup(popup_c696278f41c9df765018293781bfdae3)
+        ;
+
+        
+    
+    
+            marker_47c050468bb1c886dbb23b9be6b84c2f.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>14 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">KÜÇÜKMEHMET-DÜZCE</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47c050468bb1c886dbb23b9be6b84c2f.setIcon(icon_aa774103f2aab643d382fb7dd1e55531);
+            
+    
+            var marker_a55fe723ba9e28208bd94b6274316649 = L.marker(
+                [40.805004415887, 31.156654461663],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_3f510a413c4e16b6fe2a6f27f4ce9f8b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_51efad207fa4a0c507078a15f04dac2b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_15a16e4eb7f6773a49ab87843a1acda9 = $(`<div id="html_15a16e4eb7f6773a49ab87843a1acda9" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">15 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">YENİKÖY-SINIRCI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">15</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80500, 31.15665</td></tr>         </table>     </div>     </div>`)[0];
+                popup_51efad207fa4a0c507078a15f04dac2b.setContent(html_15a16e4eb7f6773a49ab87843a1acda9);
+            
+        
+
+        marker_a55fe723ba9e28208bd94b6274316649.bindPopup(popup_51efad207fa4a0c507078a15f04dac2b)
+        ;
+
+        
+    
+    
+            marker_a55fe723ba9e28208bd94b6274316649.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>15 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">YENİKÖY-SINIRCI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a55fe723ba9e28208bd94b6274316649.setIcon(icon_3f510a413c4e16b6fe2a6f27f4ce9f8b);
+            
+    
+            var marker_1192d1a7859be23bb0ad5c79bcf6026a = L.marker(
+                [40.800385707126, 31.181414382357],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_c2051380de6df079f1229676c62bdec1 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c404cbd9305df435947c339e9a5d259a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eec2899833cffde5a2ac2272bf37d4ef = $(`<div id="html_eec2899833cffde5a2ac2272bf37d4ef" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">16 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ÇALICUMA-PINARLAR</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">16</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.80039, 31.18141</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c404cbd9305df435947c339e9a5d259a.setContent(html_eec2899833cffde5a2ac2272bf37d4ef);
+            
+        
+
+        marker_1192d1a7859be23bb0ad5c79bcf6026a.bindPopup(popup_c404cbd9305df435947c339e9a5d259a)
+        ;
+
+        
+    
+    
+            marker_1192d1a7859be23bb0ad5c79bcf6026a.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>16 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ÇALICUMA-PINARLAR</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1192d1a7859be23bb0ad5c79bcf6026a.setIcon(icon_c2051380de6df079f1229676c62bdec1);
+            
+    
+            var marker_c2a2e4b8a574e42e27b666173a3b97eb = L.marker(
+                [40.7892477138, 31.251802549156],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_4742d2b81902ed2176a4c579ef219f2f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2d3cd2b3bd931b52055320de3ceabaf3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3997a78ac46d27f756834d0849876b3f = $(`<div id="html_3997a78ac46d27f756834d0849876b3f" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">17  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ÜÇKÖPRÜ-DARIYERİ MENGENCİK</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">17</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78925, 31.25180</td></tr>         </table>     </div>     </div>`)[0];
+                popup_2d3cd2b3bd931b52055320de3ceabaf3.setContent(html_3997a78ac46d27f756834d0849876b3f);
+            
+        
+
+        marker_c2a2e4b8a574e42e27b666173a3b97eb.bindPopup(popup_2d3cd2b3bd931b52055320de3ceabaf3)
+        ;
+
+        
+    
+    
+            marker_c2a2e4b8a574e42e27b666173a3b97eb.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>17  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ÜÇKÖPRÜ-DARIYERİ MENGENCİK</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c2a2e4b8a574e42e27b666173a3b97eb.setIcon(icon_4742d2b81902ed2176a4c579ef219f2f);
+            
+    
+            var marker_b44f547cb42655d69182eca2083cb31b = L.marker(
+                [40.786031677902, 31.262313734152],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_c6494539d909ffbf069da95f559d2e7c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e4f9b5f9ff2f362af7ccb331408cdb85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0eec4967153916d5409e730bea76da6e = $(`<div id="html_0eec4967153916d5409e730bea76da6e" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">18 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">KAAN TEKSTİL-OSMAN MAH.</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">18</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78603, 31.26231</td></tr>         </table>     </div>     </div>`)[0];
+                popup_e4f9b5f9ff2f362af7ccb331408cdb85.setContent(html_0eec4967153916d5409e730bea76da6e);
+            
+        
+
+        marker_b44f547cb42655d69182eca2083cb31b.bindPopup(popup_e4f9b5f9ff2f362af7ccb331408cdb85)
+        ;
+
+        
+    
+    
+            marker_b44f547cb42655d69182eca2083cb31b.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>18 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">KAAN TEKSTİL-OSMAN MAH.</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b44f547cb42655d69182eca2083cb31b.setIcon(icon_c6494539d909ffbf069da95f559d2e7c);
+            
+    
+            var marker_61aba2b414ba25e77a1c525d8036222d = L.marker(
+                [40.785555614251, 31.26428676885],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_70269639fe41789d83f31b7c3c2aad6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cfef11009aaa65f1f39bd4f546aa59f5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2f36bac5fb64820df097b00dce21febe = $(`<div id="html_2f36bac5fb64820df097b00dce21febe" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">19 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ENES TEKSTİL-OSB TEKSTİL</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">19</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78556, 31.26429</td></tr>         </table>     </div>     </div>`)[0];
+                popup_cfef11009aaa65f1f39bd4f546aa59f5.setContent(html_2f36bac5fb64820df097b00dce21febe);
+            
+        
+
+        marker_61aba2b414ba25e77a1c525d8036222d.bindPopup(popup_cfef11009aaa65f1f39bd4f546aa59f5)
+        ;
+
+        
+    
+    
+            marker_61aba2b414ba25e77a1c525d8036222d.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>19 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ENES TEKSTİL-OSB TEKSTİL</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_61aba2b414ba25e77a1c525d8036222d.setIcon(icon_70269639fe41789d83f31b7c3c2aad6d);
+            
+    
+            var marker_0c83f4e6fd81b8e20f5a35fddce96298 = L.marker(
+                [40.785238562069, 31.270071070361],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_75b8c7fc967abc39c59a984af918b279 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b976c3a50c47aa887c0a6055a294876b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_63183dd64416ac683604b4e3eded8092 = $(`<div id="html_63183dd64416ac683604b4e3eded8092" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">20 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DOĞANLI-KAYNAŞLI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">20</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78524, 31.27007</td></tr>         </table>     </div>     </div>`)[0];
+                popup_b976c3a50c47aa887c0a6055a294876b.setContent(html_63183dd64416ac683604b4e3eded8092);
+            
+        
+
+        marker_0c83f4e6fd81b8e20f5a35fddce96298.bindPopup(popup_b976c3a50c47aa887c0a6055a294876b)
+        ;
+
+        
+    
+    
+            marker_0c83f4e6fd81b8e20f5a35fddce96298.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>20 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DOĞANLI-KAYNAŞLI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c83f4e6fd81b8e20f5a35fddce96298.setIcon(icon_75b8c7fc967abc39c59a984af918b279);
+            
+    
+            var marker_5e4f7ce8c3f5e904a15c5fce0559d49c = L.marker(
+                [40.790264513651, 31.288799017938],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_ea1568fd4808323bed99770590cae3ac = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c525f982473402de8e334d34ba376855 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8b7cb8248c0104faf95d7f7f216e4e1c = $(`<div id="html_8b7cb8248c0104faf95d7f7f216e4e1c" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">21 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİ YÖRÜKLER-KAYNAŞLI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">21</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.79026, 31.28880</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c525f982473402de8e334d34ba376855.setContent(html_8b7cb8248c0104faf95d7f7f216e4e1c);
+            
+        
+
+        marker_5e4f7ce8c3f5e904a15c5fce0559d49c.bindPopup(popup_c525f982473402de8e334d34ba376855)
+        ;
+
+        
+    
+    
+            marker_5e4f7ce8c3f5e904a15c5fce0559d49c.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>21 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DARIYERİ YÖRÜKLER-KAYNAŞLI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5e4f7ce8c3f5e904a15c5fce0559d49c.setIcon(icon_ea1568fd4808323bed99770590cae3ac);
+            
+    
+            var marker_b0118182f1907c9fe094eacc5a3d0565 = L.marker(
+                [40.786490799983, 31.29557724102],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_dcae6b64720f98508b734130d1b26b06 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1d17f3e20f6605d9ff1fb1606c7485cc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e47ef35516fa260e82309b660ed83f9c = $(`<div id="html_e47ef35516fa260e82309b660ed83f9c" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">22 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİ YÖRÜKLER-KAYNAŞLI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">22</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78649, 31.29558</td></tr>         </table>     </div>     </div>`)[0];
+                popup_1d17f3e20f6605d9ff1fb1606c7485cc.setContent(html_e47ef35516fa260e82309b660ed83f9c);
+            
+        
+
+        marker_b0118182f1907c9fe094eacc5a3d0565.bindPopup(popup_1d17f3e20f6605d9ff1fb1606c7485cc)
+        ;
+
+        
+    
+    
+            marker_b0118182f1907c9fe094eacc5a3d0565.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>22 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DARIYERİ YÖRÜKLER-KAYNAŞLI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b0118182f1907c9fe094eacc5a3d0565.setIcon(icon_dcae6b64720f98508b734130d1b26b06);
+            
+    
+            var marker_f983b6e6f277822d4172e2eefd306854 = L.marker(
+                [40.780868261271, 31.319674448436],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_fb246ec43a6e44a5912196ceae2f3a04 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_033865cc526938ca8872f9198d709988 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2c23ece2a2d4152f6ade1df4e67d0226 = $(`<div id="html_2c23ece2a2d4152f6ade1df4e67d0226" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">23 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">SARIÇÖKEK-KAYNAŞLI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">23</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78087, 31.31967</td></tr>         </table>     </div>     </div>`)[0];
+                popup_033865cc526938ca8872f9198d709988.setContent(html_2c23ece2a2d4152f6ade1df4e67d0226);
+            
+        
+
+        marker_f983b6e6f277822d4172e2eefd306854.bindPopup(popup_033865cc526938ca8872f9198d709988)
+        ;
+
+        
+    
+    
+            marker_f983b6e6f277822d4172e2eefd306854.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>23 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">SARIÇÖKEK-KAYNAŞLI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f983b6e6f277822d4172e2eefd306854.setIcon(icon_fb246ec43a6e44a5912196ceae2f3a04);
+            
+    
+            var marker_fea87b9e41c47bd73e22395e1d04ac9a = L.marker(
+                [40.779718944549, 31.324903208501],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_07513b722debd967a5f3d185cce66af7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3f9cc655228c7977167dbe714032f2a5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5778521dee5ecd0290affc6cce10524d = $(`<div id="html_5778521dee5ecd0290affc6cce10524d" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">24  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">SARIÇÖKEK-KAYNAŞLI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">24</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77972, 31.32490</td></tr>         </table>     </div>     </div>`)[0];
+                popup_3f9cc655228c7977167dbe714032f2a5.setContent(html_5778521dee5ecd0290affc6cce10524d);
+            
+        
+
+        marker_fea87b9e41c47bd73e22395e1d04ac9a.bindPopup(popup_3f9cc655228c7977167dbe714032f2a5)
+        ;
+
+        
+    
+    
+            marker_fea87b9e41c47bd73e22395e1d04ac9a.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>24  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">SARIÇÖKEK-KAYNAŞLI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fea87b9e41c47bd73e22395e1d04ac9a.setIcon(icon_07513b722debd967a5f3d185cce66af7);
+            
+    
+            var marker_7f9a134bd374c7b80fc3ee1345d796c2 = L.marker(
+                [40.779949870148, 31.329406169404],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_357f551db6d8ceafb2f3c3c59cb16ec8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ada45c7caba03b69de8f22221baa09f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb3dde28573fdb8cc72512ea6312dc1b = $(`<div id="html_eb3dde28573fdb8cc72512ea6312dc1b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">25  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİHASANBEY-ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">25</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77995, 31.32941</td></tr>         </table>     </div>     </div>`)[0];
+                popup_ada45c7caba03b69de8f22221baa09f7.setContent(html_eb3dde28573fdb8cc72512ea6312dc1b);
+            
+        
+
+        marker_7f9a134bd374c7b80fc3ee1345d796c2.bindPopup(popup_ada45c7caba03b69de8f22221baa09f7)
+        ;
+
+        
+    
+    
+            marker_7f9a134bd374c7b80fc3ee1345d796c2.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>25  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DARIYERİHASANBEY-ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f9a134bd374c7b80fc3ee1345d796c2.setIcon(icon_357f551db6d8ceafb2f3c3c59cb16ec8);
+            
+    
+            var marker_666ba31d45699977abf2ff502b460ed0 = L.marker(
+                [40.780905383541, 31.335415416685],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_265c89b74b6997e73b628bd4ab59814f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2c67fd69ed5f4cba1fd926c9fb83e705 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb47995ac1a2d62c70ea635c4f60d037 = $(`<div id="html_eb47995ac1a2d62c70ea635c4f60d037" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">26  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİHASANBEY-ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">26</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78091, 31.33542</td></tr>         </table>     </div>     </div>`)[0];
+                popup_2c67fd69ed5f4cba1fd926c9fb83e705.setContent(html_eb47995ac1a2d62c70ea635c4f60d037);
+            
+        
+
+        marker_666ba31d45699977abf2ff502b460ed0.bindPopup(popup_2c67fd69ed5f4cba1fd926c9fb83e705)
+        ;
+
+        
+    
+    
+            marker_666ba31d45699977abf2ff502b460ed0.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>26  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DARIYERİHASANBEY-ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_666ba31d45699977abf2ff502b460ed0.setIcon(icon_265c89b74b6997e73b628bd4ab59814f);
+            
+    
+            var marker_875d9a2e0141d4f567eea0343f90fe3d = L.marker(
+                [40.781022882917, 31.336810401162],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_f179bd8e19a11cac1dfd9a547f8bef05 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c4e36528a26f2f4c516dd2a19def8eb2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b62319ec025ccad9a835b345d8842605 = $(`<div id="html_b62319ec025ccad9a835b345d8842605" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">27 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DARIYERİHASANBEY-ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">27</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.78102, 31.33681</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c4e36528a26f2f4c516dd2a19def8eb2.setContent(html_b62319ec025ccad9a835b345d8842605);
+            
+        
+
+        marker_875d9a2e0141d4f567eea0343f90fe3d.bindPopup(popup_c4e36528a26f2f4c516dd2a19def8eb2)
+        ;
+
+        
+    
+    
+            marker_875d9a2e0141d4f567eea0343f90fe3d.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>27 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DARIYERİHASANBEY-ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_875d9a2e0141d4f567eea0343f90fe3d.setIcon(icon_f179bd8e19a11cac1dfd9a547f8bef05);
+            
+    
+            var marker_9474d5e593a1db2a57fe1e93b7eaeb11 = L.marker(
+                [40.777771096965, 31.352065611007],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_a0e183e7af277caedd883453f6b74161 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1719d6f2adbefb0b00a9426b914696e3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b4bbbdbcdbe79dfe3cc42547ce620af2 = $(`<div id="html_b4bbbdbcdbe79dfe3cc42547ce620af2" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">28 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">28</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77777, 31.35207</td></tr>         </table>     </div>     </div>`)[0];
+                popup_1719d6f2adbefb0b00a9426b914696e3.setContent(html_b4bbbdbcdbe79dfe3cc42547ce620af2);
+            
+        
+
+        marker_9474d5e593a1db2a57fe1e93b7eaeb11.bindPopup(popup_1719d6f2adbefb0b00a9426b914696e3)
+        ;
+
+        
+    
+    
+            marker_9474d5e593a1db2a57fe1e93b7eaeb11.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>28 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9474d5e593a1db2a57fe1e93b7eaeb11.setIcon(icon_a0e183e7af277caedd883453f6b74161);
+            
+    
+            var marker_27e6f88190609493fd1d9ffbdcfd0788 = L.marker(
+                [40.777331281327, 31.353029409148],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_94e7757863364ff7334cc3decad234e3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_57ef22cf1f38c6ada4c2d5882e279ab3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e3caebaccac78091b96660e0f4748ecb = $(`<div id="html_e3caebaccac78091b96660e0f4748ecb" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">29  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">29</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77733, 31.35303</td></tr>         </table>     </div>     </div>`)[0];
+                popup_57ef22cf1f38c6ada4c2d5882e279ab3.setContent(html_e3caebaccac78091b96660e0f4748ecb);
+            
+        
+
+        marker_27e6f88190609493fd1d9ffbdcfd0788.bindPopup(popup_57ef22cf1f38c6ada4c2d5882e279ab3)
+        ;
+
+        
+    
+    
+            marker_27e6f88190609493fd1d9ffbdcfd0788.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>29  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_27e6f88190609493fd1d9ffbdcfd0788.setIcon(icon_94e7757863364ff7334cc3decad234e3);
+            
+    
+            var marker_a8793dbb1de9663b5476f12a39128d29 = L.marker(
+                [40.776675810613, 31.354109623748],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_b68f6e1c5dfccc5a4d5f61e8594d4897 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a2688dba18eee14a0b03ef52fe349ea = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_adda74a2b0ca3810d4822a8858192e49 = $(`<div id="html_adda74a2b0ca3810d4822a8858192e49" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">30 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">30</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77668, 31.35411</td></tr>         </table>     </div>     </div>`)[0];
+                popup_6a2688dba18eee14a0b03ef52fe349ea.setContent(html_adda74a2b0ca3810d4822a8858192e49);
+            
+        
+
+        marker_a8793dbb1de9663b5476f12a39128d29.bindPopup(popup_6a2688dba18eee14a0b03ef52fe349ea)
+        ;
+
+        
+    
+    
+            marker_a8793dbb1de9663b5476f12a39128d29.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>30 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a8793dbb1de9663b5476f12a39128d29.setIcon(icon_b68f6e1c5dfccc5a4d5f61e8594d4897);
+            
+    
+            var marker_b5b9654d7893ae3f152fe4f0ec67af52 = L.marker(
+                [40.775449165944, 31.355853891276],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_0620452b13aea1bcd6b80066f5478573 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b4fef0e8183ed7c6f2debf4b22348fe8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d14be59eebae1740c64a867843e45fa9 = $(`<div id="html_d14be59eebae1740c64a867843e45fa9" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">31 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">31</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77545, 31.35585</td></tr>         </table>     </div>     </div>`)[0];
+                popup_b4fef0e8183ed7c6f2debf4b22348fe8.setContent(html_d14be59eebae1740c64a867843e45fa9);
+            
+        
+
+        marker_b5b9654d7893ae3f152fe4f0ec67af52.bindPopup(popup_b4fef0e8183ed7c6f2debf4b22348fe8)
+        ;
+
+        
+    
+    
+            marker_b5b9654d7893ae3f152fe4f0ec67af52.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>31 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b5b9654d7893ae3f152fe4f0ec67af52.setIcon(icon_0620452b13aea1bcd6b80066f5478573);
+            
+    
+            var marker_ef669b23f5852cf5a0e0da806592fdcc = L.marker(
+                [40.774443482714, 31.35758418035],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_7730ccc7281d20fc2512620d55e28237 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_1f102e7271a4bd4bdae78b371e1fd178 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a148481e638798baf526f36ea2f3fa84 = $(`<div id="html_a148481e638798baf526f36ea2f3fa84" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">32  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">ELMALI</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">32</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.77444, 31.35758</td></tr>         </table>     </div>     </div>`)[0];
+                popup_1f102e7271a4bd4bdae78b371e1fd178.setContent(html_a148481e638798baf526f36ea2f3fa84);
+            
+        
+
+        marker_ef669b23f5852cf5a0e0da806592fdcc.bindPopup(popup_1f102e7271a4bd4bdae78b371e1fd178)
+        ;
+
+        
+    
+    
+            marker_ef669b23f5852cf5a0e0da806592fdcc.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>32  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">ELMALI</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ef669b23f5852cf5a0e0da806592fdcc.setIcon(icon_7730ccc7281d20fc2512620d55e28237);
+            
+    
+            var marker_56e962cd521259d92d93d39a0f052c20 = L.marker(
+                [40.769900642513, 31.365982003041],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_997d6cc2951111fdefb0cc7a6b5f71ba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87ff8a0afea33c941378be653220e5ff = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ece41a09e87963d8e1a41b5fa8cdf0b = $(`<div id="html_4ece41a09e87963d8e1a41b5fa8cdf0b" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">33  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DEREBOYU KÖYÜ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">33</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.76990, 31.36598</td></tr>         </table>     </div>     </div>`)[0];
+                popup_87ff8a0afea33c941378be653220e5ff.setContent(html_4ece41a09e87963d8e1a41b5fa8cdf0b);
+            
+        
+
+        marker_56e962cd521259d92d93d39a0f052c20.bindPopup(popup_87ff8a0afea33c941378be653220e5ff)
+        ;
+
+        
+    
+    
+            marker_56e962cd521259d92d93d39a0f052c20.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>33  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DEREBOYU KÖYÜ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_56e962cd521259d92d93d39a0f052c20.setIcon(icon_997d6cc2951111fdefb0cc7a6b5f71ba);
+            
+    
+            var marker_e860dc313d84342aad4f19fac1f96bb6 = L.marker(
+                [40.768239708389, 31.370959511337],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_bb7a4d6fb519b7c082979fa41b6b4e42 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87e5a72a2910f7e69080aee73904ce44 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfda5d06bec56ece18030dfc11739856 = $(`<div id="html_dfda5d06bec56ece18030dfc11739856" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">34 NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DEREBOYU KÖYÜ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">34</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.76824, 31.37096</td></tr>         </table>     </div>     </div>`)[0];
+                popup_87e5a72a2910f7e69080aee73904ce44.setContent(html_dfda5d06bec56ece18030dfc11739856);
+            
+        
+
+        marker_e860dc313d84342aad4f19fac1f96bb6.bindPopup(popup_87e5a72a2910f7e69080aee73904ce44)
+        ;
+
+        
+    
+    
+            marker_e860dc313d84342aad4f19fac1f96bb6.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>34 NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DEREBOYU KÖYÜ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e860dc313d84342aad4f19fac1f96bb6.setIcon(icon_bb7a4d6fb519b7c082979fa41b6b4e42);
+            
+    
+            var marker_f570197d63a39ea57fee6083f6b8581f = L.marker(
+                [40.767203360202, 31.373967151813],
+                {
+}
+            ).addTo(feature_group_50a217481669d51b3207db954307c046);
+        
+    
+            var icon_20aedd9b415a8d783418be6447624111 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "archway",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c8269f6fc063bb1eabfe7e28005f1e85 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d81f656ac94edf79cbe123be904026a1 = $(`<div id="html_d81f656ac94edf79cbe123be904026a1" style="width: 100.0%; height: 100.0%;">     <div style="font-family:Arial, sans-serif; width: 250px;">         <h4 style="background-color:#3867d6; color:white; padding:5px; margin:0; text-align:center; border-radius:5px 5px 0 0;">ALT GEÇİT</h4>         <table style="width:100%; border-collapse:collapse; font-size:12px;">             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>İsim</b></td><td style="padding:5px; border:1px solid #ddd;">35  NOLU ALT GEÇİT</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Bağlantı</b></td><td style="padding:5px; border:1px solid #ddd;">DİP KÖYÜ-DEREBOYU KÖYÜ</td></tr>             <tr style="background-color:#f2f2f2;"><td style="padding:5px; border:1px solid #ddd;"><b>Sıra No</b></td><td style="padding:5px; border:1px solid #ddd;">35</td></tr>             <tr><td style="padding:5px; border:1px solid #ddd;"><b>Koordinat</b></td><td style="padding:5px; border:1px solid #ddd;">40.76720, 31.37397</td></tr>         </table>     </div>     </div>`)[0];
+                popup_c8269f6fc063bb1eabfe7e28005f1e85.setContent(html_d81f656ac94edf79cbe123be904026a1);
+            
+        
+
+        marker_f570197d63a39ea57fee6083f6b8581f.bindPopup(popup_c8269f6fc063bb1eabfe7e28005f1e85)
+        ;
+
+        
+    
+    
+            marker_f570197d63a39ea57fee6083f6b8581f.bindTooltip(
+                `<div>
+                     <div style="font-family:Arial;"><b>35  NOLU ALT GEÇİT</b><br><span style="color:#3867d6;">DİP KÖYÜ-DEREBOYU KÖYÜ</span></div>
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f570197d63a39ea57fee6083f6b8581f.setIcon(icon_20aedd9b415a8d783418be6447624111);
+            
+    
+            feature_group_50a217481669d51b3207db954307c046.addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            var tile_layer_e0ffd72dd1ae851ff8f835496a17993d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_b37551f35ec3d11ee5661d1bc68eb723 = new L.Control.MiniMap(
+                tile_layer_e0ffd72dd1ae851ff8f835496a17993d,
+                {
+  "position": "bottomright",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_2186513608fc328f6fd83547af2dd76b.addControl(mini_map_b37551f35ec3d11ee5661d1bc68eb723);
+        
+    
+            var measure_control_bfd5410cabb27c9061fa24702f94fa71 = new L.Control.Measure(
+                {
+  "position": "topleft",
+  "primaryLengthUnit": "meters",
+  "secondaryLengthUnit": "kilometers",
+  "primaryAreaUnit": "sqmeters",
+  "secondaryAreaUnit": "acres",
+});
+            map_2186513608fc328f6fd83547af2dd76b.addControl(measure_control_bfd5410cabb27c9061fa24702f94fa71);
+
+            // Workaround for using this plugin with Leaflet>=1.8.0
+            // https://github.com/ljagis/leaflet-measure/issues/171
+            L.Control.Measure.include({
+                _setCaptureMarkerIcon: function () {
+                    // disable autopan
+                    this._captureMarker.options.autoPanOnFocus = false;
+                    // default function
+                    this._captureMarker.setIcon(
+                        L.divIcon({
+                            iconSize: this._map.getSize().multiplyBy(2)
+                        })
+                    );
+                },
+            });
+
+        
+    
+            var mouse_position_e93d2f1907d3048dde2dc81e41b299c2 = new L.Control.MousePosition(
+                {
+  "position": "topright",
+  "separator": " | ",
+  "emptyString": "Unavailable",
+  "lngFirst": false,
+  "numDigits": 5,
+  "prefix": "Konum:",
+}
+            );
+            mouse_position_e93d2f1907d3048dde2dc81e41b299c2.options["latFormatter"] =
+                undefined;
+            mouse_position_e93d2f1907d3048dde2dc81e41b299c2.options["lngFormatter"] =
+                undefined;
+            map_2186513608fc328f6fd83547af2dd76b.addControl(mouse_position_e93d2f1907d3048dde2dc81e41b299c2);
+        
+    
+            L.control.fullscreen(
+                {
+  "position": "topright",
+  "title": "Full Screen",
+  "titleCancel": "Exit Full Screen",
+  "forceSeparateButton": false,
+}
+            ).addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            var locate_control_2eb6c33bd612aee8023d3ed241af33bc = L.control.locate(
+                {"position": "topleft", "strings": {"popup": "Konumunuz", "title": "Konumumu Bul"}}
+            ).addTo(map_2186513608fc328f6fd83547af2dd76b);
+            
+        
+    
+        function geo_json_77a26d57f8487b53bf6f8656d386bab8_pointToLayer(feature, latlng) {
+            var opts = {
+};
+            
+            const iconOptions = {
+  "html": "",
+  "className": "empty",
+}
+            const iconRootAlias = L
+            opts.icon = new iconRootAlias.DivIcon(iconOptions)
+            
+            return new L.Marker(latlng, opts)
+        }
+
+        function geo_json_77a26d57f8487b53bf6f8656d386bab8_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_77a26d57f8487b53bf6f8656d386bab8 = L.geoJson(null, {
+                onEachFeature: geo_json_77a26d57f8487b53bf6f8656d386bab8_onEachFeature,
+            
+                pointToLayer: geo_json_77a26d57f8487b53bf6f8656d386bab8_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_77a26d57f8487b53bf6f8656d386bab8_add (data) {
+            geo_json_77a26d57f8487b53bf6f8656d386bab8
+                .addData(data);
+        }
+            geo_json_77a26d57f8487b53bf6f8656d386bab8_add({"features": [{"geometry": {"coordinates": [30.867151943345, 40.807667523063], "type": "Point"}, "properties": {"name": "80 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - YE\u015e\u0130LYAYLA-BEYL\u0130CE"}, "type": "Feature"}, {"geometry": {"coordinates": [30.911822835047, 40.817112268424], "type": "Point"}, "properties": {"name": "81 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - DEREK\u00d6Y"}, "type": "Feature"}, {"geometry": {"coordinates": [30.978170206416, 40.841575728325], "type": "Point"}, "properties": {"name": "1 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - YAKABA\u015eI-ELMACIK"}, "type": "Feature"}, {"geometry": {"coordinates": [31.00863359711, 40.845283138728], "type": "Point"}, "properties": {"name": "2 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - YAYAKBA\u015eI-HACIKAD\u0130RLER"}, "type": "Feature"}, {"geometry": {"coordinates": [31.022480221283, 40.842319076103], "type": "Point"}, "properties": {"name": "3 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - YAYAKBA\u015eI-D\u00d6NGELL\u0130"}, "type": "Feature"}, {"geometry": {"coordinates": [31.031053367354, 40.837409951229], "type": "Point"}, "properties": {"name": "4 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - YAYAKBA\u015eI-\u0130SLAH\u0130YE"}, "type": "Feature"}, {"geometry": {"coordinates": [31.040700281353, 40.83194960511], "type": "Point"}, "properties": {"name": "5 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - G\u00d6LYAKA G\u0130\u015eELER\u0130"}, "type": "Feature"}, {"geometry": {"coordinates": [31.043950261853, 40.830421227232], "type": "Point"}, "properties": {"name": "6 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - K\u00d6PR\u00dcBA\u015eI-\u015eAZ\u0130YE"}, "type": "Feature"}, {"geometry": {"coordinates": [31.054375443948, 40.826439763642], "type": "Point"}, "properties": {"name": "7 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - K\u00d6PR\u00dcBA\u015eI-BOSTANLIK"}, "type": "Feature"}, {"geometry": {"coordinates": [31.096408157315, 40.814024434677], "type": "Point"}, "properties": {"name": "8 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - MOLLAO\u011eLU-EFEND\u0130"}, "type": "Feature"}, {"geometry": {"coordinates": [31.116594265871, 40.811569937849], "type": "Point"}, "properties": {"name": "9 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - TURAPLAR-BATAKLI\u00c7\u0130FTL\u0130K"}, "type": "Feature"}, {"geometry": {"coordinates": [31.148767146278, 40.807469091598], "type": "Point"}, "properties": {"name": "10 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - HACIAHMETLER-HATIPLAR"}, "type": "Feature"}, {"geometry": {"coordinates": [31.168109162741, 40.804044589046], "type": "Point"}, "properties": {"name": "10A NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - D\u00dcZCE G\u0130\u015eELER\u0130"}, "type": "Feature"}, {"geometry": {"coordinates": [31.175245300843, 40.802730183225], "type": "Point"}, "properties": {"name": "11 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - \u00c7ALICUMA-S\u0130N\u0130RC\u0130"}, "type": "Feature"}, {"geometry": {"coordinates": [31.187708047696, 40.798446779958], "type": "Point"}, "properties": {"name": "12 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - B\u00dcY\u00dcKA\u00c7MA-PINARLAR"}, "type": "Feature"}, {"geometry": {"coordinates": [31.203171024581, 40.793365734732], "type": "Point"}, "properties": {"name": "13 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - PA\u015eAORMANI-PINARLAR"}, "type": "Feature"}, {"geometry": {"coordinates": [31.215085928755, 40.791408831928], "type": "Point"}, "properties": {"name": "14 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - MURAD\u0130YEMENGENC\u0130K-PA\u015eAORMANI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.235336040885, 40.790673218536], "type": "Point"}, "properties": {"name": "15 NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - DARIYER\u0130MENGENC\u0130K-DO\u011eANLI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.275730315446, 40.787075888645], "type": "Point"}, "properties": {"name": "16A NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - KAYNA\u015eLI G\u0130\u015eELER\u0130"}, "type": "Feature"}, {"geometry": {"coordinates": [31.342648558387, 40.780471020694], "type": "Point"}, "properties": {"name": "16/B NOLU \u00dcST GE\u00c7\u0130T K\u00d6PR\u00dcS\u00dc - DARIYER\u0130HASANBEY"}, "type": "Feature"}, {"geometry": {"coordinates": [30.853922023856, 40.804398320754], "type": "Point"}, "properties": {"name": "1 NOLU ALT GE\u00c7\u0130T - HAC\u0130MBEY-YE\u015e\u0130LYAYLA"}, "type": "Feature"}, {"geometry": {"coordinates": [30.885496938487, 40.808131272269], "type": "Point"}, "properties": {"name": "2 NOLU ALT GE\u00c7\u0130T - YE\u015e\u0130LYAYLA"}, "type": "Feature"}, {"geometry": {"coordinates": [30.917920516521, 40.821823774395], "type": "Point"}, "properties": {"name": "3 NOLU ALT GE\u00c7\u0130T - YONGALIK"}, "type": "Feature"}, {"geometry": {"coordinates": [30.927599652722, 40.828288758597], "type": "Point"}, "properties": {"name": "4 NOLU ALT GE\u00c7\u0130T - YONGALIK"}, "type": "Feature"}, {"geometry": {"coordinates": [30.93716035357, 40.832215319033], "type": "Point"}, "properties": {"name": "5 NOLU ALT GE\u00c7\u0130T - YONGALIK"}, "type": "Feature"}, {"geometry": {"coordinates": [30.946217544521, 40.837256288386], "type": "Point"}, "properties": {"name": "6 NOLU ALT GE\u00c7\u0130T - G\u00dcM\u00dc\u015eOVA"}, "type": "Feature"}, {"geometry": {"coordinates": [30.972439325714, 40.84113572584], "type": "Point"}, "properties": {"name": "7 NOLU ALT GE\u00c7\u0130T - SELAMLAR-ELMACIK"}, "type": "Feature"}, {"geometry": {"coordinates": [30.994202412776, 40.840846534191], "type": "Point"}, "properties": {"name": "8 NOLU ALT GE\u00c7\u0130T - YAKABA\u015eI-SARIDERE"}, "type": "Feature"}, {"geometry": {"coordinates": [30.995685950624, 40.841453630446], "type": "Point"}, "properties": {"name": "9 NOLU ALT GE\u00c7\u0130T - SULTAN\u0130YE"}, "type": "Feature"}, {"geometry": {"coordinates": [31.069523925869, 40.820615971668], "type": "Point"}, "properties": {"name": "10 NOLU ALT GE\u00c7\u0130T - PA\u015eAKONA\u011eI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.077486527445, 40.817707432482], "type": "Point"}, "properties": {"name": "11 NOLU ALT GE\u00c7\u0130T - PA\u015eAKONA\u011eI-BAH\u00c7E"}, "type": "Feature"}, {"geometry": {"coordinates": [31.079491319039, 40.816964712129], "type": "Point"}, "properties": {"name": "12 NOLU ALT GE\u00c7\u0130T - KU\u015eA\u00c7MASI-YEN\u0130TA\u015eK\u00d6PR\u00dc"}, "type": "Feature"}, {"geometry": {"coordinates": [31.130757584506, 40.810716754569], "type": "Point"}, "properties": {"name": "13 NOLU ALT GE\u00c7\u0130T - TURAPLAR"}, "type": "Feature"}, {"geometry": {"coordinates": [31.137986258733, 40.810615879541], "type": "Point"}, "properties": {"name": "14 NOLU ALT GE\u00c7\u0130T - K\u00dc\u00c7\u00dcKMEHMET-D\u00dcZCE"}, "type": "Feature"}, {"geometry": {"coordinates": [31.156654461663, 40.805004415887], "type": "Point"}, "properties": {"name": "15 NOLU ALT GE\u00c7\u0130T - YEN\u0130K\u00d6Y-SINIRCI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.181414382357, 40.800385707126], "type": "Point"}, "properties": {"name": "16 NOLU ALT GE\u00c7\u0130T - \u00c7ALICUMA-PINARLAR"}, "type": "Feature"}, {"geometry": {"coordinates": [31.251802549156, 40.7892477138], "type": "Point"}, "properties": {"name": "17  NOLU ALT GE\u00c7\u0130T - \u00dc\u00c7K\u00d6PR\u00dc-DARIYER\u0130 MENGENC\u0130K"}, "type": "Feature"}, {"geometry": {"coordinates": [31.262313734152, 40.786031677902], "type": "Point"}, "properties": {"name": "18 NOLU ALT GE\u00c7\u0130T - KAAN TEKST\u0130L-OSMAN MAH."}, "type": "Feature"}, {"geometry": {"coordinates": [31.26428676885, 40.785555614251], "type": "Point"}, "properties": {"name": "19 NOLU ALT GE\u00c7\u0130T - ENES TEKST\u0130L-OSB TEKST\u0130L"}, "type": "Feature"}, {"geometry": {"coordinates": [31.270071070361, 40.785238562069], "type": "Point"}, "properties": {"name": "20 NOLU ALT GE\u00c7\u0130T - DO\u011eANLI-KAYNA\u015eLI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.288799017938, 40.790264513651], "type": "Point"}, "properties": {"name": "21 NOLU ALT GE\u00c7\u0130T - DARIYER\u0130 Y\u00d6R\u00dcKLER-KAYNA\u015eLI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.29557724102, 40.786490799983], "type": "Point"}, "properties": {"name": "22 NOLU ALT GE\u00c7\u0130T - DARIYER\u0130 Y\u00d6R\u00dcKLER-KAYNA\u015eLI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.319674448436, 40.780868261271], "type": "Point"}, "properties": {"name": "23 NOLU ALT GE\u00c7\u0130T - SARI\u00c7\u00d6KEK-KAYNA\u015eLI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.324903208501, 40.779718944549], "type": "Point"}, "properties": {"name": "24  NOLU ALT GE\u00c7\u0130T - SARI\u00c7\u00d6KEK-KAYNA\u015eLI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.329406169404, 40.779949870148], "type": "Point"}, "properties": {"name": "25  NOLU ALT GE\u00c7\u0130T - DARIYER\u0130HASANBEY-ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.335415416685, 40.780905383541], "type": "Point"}, "properties": {"name": "26  NOLU ALT GE\u00c7\u0130T - DARIYER\u0130HASANBEY-ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.336810401162, 40.781022882917], "type": "Point"}, "properties": {"name": "27 NOLU ALT GE\u00c7\u0130T - DARIYER\u0130HASANBEY-ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.352065611007, 40.777771096965], "type": "Point"}, "properties": {"name": "28 NOLU ALT GE\u00c7\u0130T - ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.353029409148, 40.777331281327], "type": "Point"}, "properties": {"name": "29  NOLU ALT GE\u00c7\u0130T - ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.354109623748, 40.776675810613], "type": "Point"}, "properties": {"name": "30 NOLU ALT GE\u00c7\u0130T - ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.355853891276, 40.775449165944], "type": "Point"}, "properties": {"name": "31 NOLU ALT GE\u00c7\u0130T - ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.35758418035, 40.774443482714], "type": "Point"}, "properties": {"name": "32  NOLU ALT GE\u00c7\u0130T - ELMALI"}, "type": "Feature"}, {"geometry": {"coordinates": [31.365982003041, 40.769900642513], "type": "Point"}, "properties": {"name": "33  NOLU ALT GE\u00c7\u0130T - DEREBOYU K\u00d6Y\u00dc"}, "type": "Feature"}, {"geometry": {"coordinates": [31.370959511337, 40.768239708389], "type": "Point"}, "properties": {"name": "34 NOLU ALT GE\u00c7\u0130T - DEREBOYU K\u00d6Y\u00dc"}, "type": "Feature"}, {"geometry": {"coordinates": [31.373967151813, 40.767203360202], "type": "Point"}, "properties": {"name": "35  NOLU ALT GE\u00c7\u0130T - D\u0130P K\u00d6Y\u00dc-DEREBOYU K\u00d6Y\u00dc"}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_77a26d57f8487b53bf6f8656d386bab8.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+            geo_json_77a26d57f8487b53bf6f8656d386bab8.addTo(map_2186513608fc328f6fd83547af2dd76b);
+        
+    
+            var geo_json_77a26d57f8487b53bf6f8656d386bab8searchControl = new L.Control.Search({
+                layer: geo_json_77a26d57f8487b53bf6f8656d386bab8,
+                
+                propertyName: 'name',
+                
+                collapsed: false,
+                textPlaceholder: 'Geçit Adı veya Bağlantı Ara...',
+                position:'topleft',
+            
+                initial: false,
+                
+                zoom: 17,
+                
+                hideMarkerOnCollapse: true
+            
+                });
+                geo_json_77a26d57f8487b53bf6f8656d386bab8searchControl.on('search:locationfound', function(e) {
+                    geo_json_77a26d57f8487b53bf6f8656d386bab8.setStyle(function(feature){
+                        return feature.properties.style
+                    })
+                    
+                    e.layer.setStyle({
+  "weight": 3,
+});
+                    
+                    if(e.layer._popup)
+                        e.layer.openPopup();
+                })
+                geo_json_77a26d57f8487b53bf6f8656d386bab8searchControl.on('search:collapsed', function(e) {
+                        geo_json_77a26d57f8487b53bf6f8656d386bab8.setStyle(function(feature){
+                            return feature.properties.style
+                    });
+                });
+            map_2186513608fc328f6fd83547af2dd76b.addControl( geo_json_77a26d57f8487b53bf6f8656d386bab8searchControl );
+
+        
+    
+            var layer_control_8a8ad508ccd83cd1edf2308173595c0a_layers = {
+                base_layers : {
+                    "Uydu G\u00f6r\u00fcnt\u00fcs\u00fc (Esri)" : tile_layer_e7c10ba01adcc51ce69052277e379d03,
+                    "Sokak Haritas\u0131 (OSM)" : tile_layer_c4c8ccb7618a79d3373149627d2e516d,
+                },
+                overlays :  {
+                    "\u00dcst Ge\u00e7itler" : feature_group_25cfc625adefb2115e6c58e8ff66e07e,
+                    "Alt Ge\u00e7itler" : feature_group_50a217481669d51b3207db954307c046,
+                },
+            };
+            let layer_control_8a8ad508ccd83cd1edf2308173595c0a = L.control.layers(
+                layer_control_8a8ad508ccd83cd1edf2308173595c0a_layers.base_layers,
+                layer_control_8a8ad508ccd83cd1edf2308173595c0a_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_2186513608fc328f6fd83547af2dd76b);
+
+        
+</script>
+</html>
